@@ -1,0 +1,396 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: white;
+}
+
+body {
+  max-width: 100dvw;
+  min-height: 100dvh;
+  background-color: white;
+  font-family: "source-code-pro", monospace;
+  font-weight: 300;
+  font-style: normal;
+  overflow-x: hidden;
+  border: 1.5px solid black;
+  margin: 15px;
+  display: flex;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --color-trail: #551AB8;
+  --blue: rgb(65, 65, 255);
+}
+
+.cursor {
+  position: fixed;
+  border-radius: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: var(--blue);
+  border: 1px solid white;
+  height: 20px;
+  width: 20px;
+  z-index: 20000;
+  pointer-events: none;
+  transition: all 200ms ease-out;
+}
+
+#cursor-text {
+  top: 0;
+  left: 0;
+  color: black;
+
+  position: absolute;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+::selection {
+  background-color: var(--blue);
+}
+
+.la-bohemienne {
+  font-family: "la-bohemienne", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.source-code-pro {
+  font-family: "source-code-pro", monospace;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.leander {
+  font-family: "leander-script-pro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.muli {
+  font-family: "muli", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+button {
+  font-family: "source-code-pro", monospace;
+  font-weight: 300;
+  font-style: normal;
+}
+
+#showPanel {
+  position: fixed;
+  background-color: var(--blue);
+  border: 1px solid black;
+  color: white;
+  padding: 5px;
+  bottom: 35px;
+  right: 35px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  z-index: 10000;
+}
+
+.panel {
+  position: fixed;
+  width: 400px;
+  border: 1px solid black;
+  background-color: white;
+  bottom: 35px;
+  right: 35px;
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+}
+
+@media only screen and (max-width: 1120px) {
+  .panel {
+    width: 300px;
+    font-size: .8em;
+  }
+  header {
+    font-size: .8em;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .panel {
+    width: 250px;
+    font-size: .4em;
+  }
+  header {
+    font-size: .6em;
+  }
+}
+  .aside-top {
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: end;
+    background-color: var(--blue);
+    transition: all 0.3s ease-in;
+  }
+
+  /* .aside-top:hover {
+    background-color: var(--blue);
+    color: white;
+  } */
+    .aside-top button {
+      background-color: transparent;
+      border: none;
+      padding-right: 10px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      color: white;
+    }
+
+  .panel nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px;
+    border-bottom: 1.5px dotted black;
+  }
+  .panel nav div {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .circle {
+    background-color: var(--blue);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+  }
+
+  #circle-home, #circle-about {
+    display: none;
+  }
+
+  #circle-works {
+    display: block;
+  }
+
+  .aside-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 11px;
+  }
+
+  @media only screen and (max-width: 1120px) {
+    .aside-info {
+      font-size: 8px;
+    }
+  }
+  
+  @media only screen and (max-width: 530px) {
+    .aside-info {
+      font-size: 7px;
+    }
+  }
+
+  .aside-contact {
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    text-align: left;
+    padding: 15px;
+  }
+
+  .aside-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    text-align: right;
+    padding: 15px;
+  }
+
+  .aside-last {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    font-size: .8em;
+    border-top: .5px solid black;
+  }
+
+
+.back {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.back a {
+  display: inline-block;
+  line-height: 0;
+  cursor: pointer;
+}
+
+  .back img {
+    width: 7%;
+    display: block;
+  }
+
+aside {
+  position: fixed;
+  max-width: 28%;
+  padding: 50px;
+  font-family: muli;
+}
+  .aside-collab {
+    margin-top: 60px;
+  }
+  .aside-st {
+    margin-top: 40px;
+  }
+  .aside-bnd {
+    margin-top: 140px;
+  }
+  .aside-led {
+    margin-top: 30px;
+  }
+  .aside-receipt {
+    margin-top: 170px;
+  }
+  .aside-td {
+    margin-top: 120px;
+  }
+
+  aside h1 {
+    font-weight: 300;
+    font-size: 1.5vw;
+    margin-bottom: 50px;
+    font-family: "source-code-pro", monospace;
+  }
+
+  aside p {
+    font-size: .8vw;
+  }
+
+  @media only screen and (max-width: 1190px) {
+    aside h1{
+      font-size: 2vw;
+    }
+  
+    aside p {
+      font-size: 1vw;
+    }
+  }
+
+  .space {
+    margin-bottom: 100px;
+  }
+
+.info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: end;
+}
+
+.info p:nth-child(2) {
+  margin-left: 50px;
+}
+
+main {
+  width: 100%;
+  margin: 50px;
+  padding-left: 28%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+  main img, main video {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .last-img {
+    margin-bottom: 0;
+  }
+
+  .bnd-img {
+    width: 70%;
+  }
+  .perceiving-img {
+    width: 61%;
+  }
+  .td-img {
+    width: 55%;
+  }
+  .shoe-img {
+    width: 85%;
+  }
+
+@media only screen and (max-width: 950px) {
+  body {
+    flex-direction: column;
+  }
+
+  aside {
+    position: relative;
+    min-width: 100%;
+    padding-top: 0;
+  }
+    .aside-collab, .aside-st, .aside-bnd, .aside-led, .aside-receipt, .aside-td {
+      margin-top: 50px;
+    }
+  aside h1 {
+    font-size: 4vw;
+  }
+  aside p {
+    font-size: 2vw;
+  }
+
+  main {
+    padding-left: 0;
+    margin: 0;
+  }
+
+  main img, main video {
+    width: 90%;
+  }
+
+  .last-img {
+    margin-bottom: 50px;
+  }
+
+  .bnd-img {
+    width: 90%;
+  }
+  .perceiving-img {
+    width: 90%;
+  }
+  .td-img {
+    width: 90%;
+  }
+}
