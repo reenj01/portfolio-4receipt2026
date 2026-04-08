@@ -126,6 +126,12 @@ header h1 {
   white-space: nowrap;
 }
 
+header h1 .home-title-link {
+  color: inherit;
+  text-decoration: none;
+  display: contents;
+}
+
 header h1 .h1-word {
   display: inline;
 }

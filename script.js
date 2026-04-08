@@ -1,3 +1,13 @@
+/** Keep index at scroll top when there is no hash (e.g. back from a work page). */
+if (typeof history !== "undefined" && "scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+window.addEventListener("pageshow", (e) => {
+  if (e.persisted && !location.hash) {
+    window.scrollTo(0, 0);
+  }
+});
+
 const headerActions = document.querySelector(".header-actions");
 const fullViewBtn = document.querySelector(".header-action--full-view");
 const listViewBtn = document.querySelector(".header-action--list-view");
@@ -176,3 +186,10 @@ function syncProjectNumbers() {
 }
 
 syncProjectNumbers();
+
+document.querySelectorAll("[data-home-reload]").forEach((el) => {
+  el.addEventListener("click", (e) => {
+    e.preventDefault();
+    location.reload();
+  });
+});
